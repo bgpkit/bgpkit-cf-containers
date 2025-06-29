@@ -1,8 +1,10 @@
 # BGP Data Search API with Cloudflare Containers
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/bgpkit/bgpkit-cf-containers)
+
 [Cloudflare Containers][containers] provides a platform to run containerized applications.
 The platform is well-suited for short-lived bursts of queries.
-This repository contains a simple example of how to deploy a Rust-based BGP Data Search API using Cloudflare Containers.
+This repository contains a simple example of deploying a Rust-based BGP Data Search API using Cloudflare Containers.
 
 [containers]: https://developers.cloudflare.com/containers/
 
@@ -26,10 +28,16 @@ It returns the parsed BGP updates data in JSON format.
 
 We also need to run a wrapper API to handle the HTTP requests and route them to the containerized BGP Data Search API.
 
+This works as a wrapper around the BGP Data Search API, allowing it to be accessed via a Cloudflare Workers endpoint (e.g. `https://XXXXX.workers.dev`).
+
+We use [`hono`][hono] as the web framework for this wrapper.
+
+[hono]: https://hono.dev/
+
 ## Build and deploy
 
-The project utilizes the Cloudflare Containers tooling to build and deploy the application.
-To build and deploy the application, run the following command:
+The project uses the Cloudflare Containers tooling to build and deploy the application.
+To build and deploy the application, simply run the following command:
 ```
 npx wrangler deploy
 ```
