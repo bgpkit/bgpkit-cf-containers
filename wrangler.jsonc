@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "bgpkit-search-containers",
+	"name": "bgpkit-cf-containers",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-06-28",
 	"observability": {
